@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .title }}</title>
+  <script src="/static/script.js" defer></script>
+</head>
+<body>
+  <h1>Hola Mundo. desde servidor en GO</h1>
+  <h3>Total de usuarios registrados {{ .total_users }}</h3>
+  <form id="user-form">
+    <label for="email">
+      Email:
+      <input type="email" name="email" required>
+    </label>
+    <label for="name">
+      Nombre:
+      <input type="text" name="name" required>
+    </label>
+    <button type="submit">Guardar</button>
+  </form>
+  <ul id="user-list">
+    {{ range .users }}
+    <li>{{ .Name }} - {{ .Email }}</li>
+    {{ end }}
+  </ul>
+</body>
+</html>
